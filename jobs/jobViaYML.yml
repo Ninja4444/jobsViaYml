@@ -1,0 +1,20 @@
+resources:
+  jobs:
+    jobViaYAML_file:
+      name: jobViaYAML_file
+      tasks:
+        - task_key: notebook1
+          notebook_task:
+            notebook_path: /Workspace/Users/manish.b.gautam@accenture.com/jobsViaYml/resources/notebook1
+            source: WORKSPACE
+          existing_cluster_id: 0323-065535-bjxi3daq
+        - task_key: notebook2
+          depends_on:
+            - task_key: notebook1
+          run_if: ALL_SUCCESS       
+          notebook_task:
+            notebook_path: /Workspace/Users/manish.b.gautam@accenture.com/jobsViaYml/resources/notebook2
+            source: WORKSPACE
+          existing_cluster_id: 0323-065535-bjxi3daq
+      queue:
+        enabled: true

@@ -1,0 +1,13 @@
+bundle:
+  name: jobsViaYml
+
+include:
+  - resources/*.yml
+  - jobs/*.yml
+
+targets:
+  dev:
+    mode: development
+    default: true
+    workspace:
+      host: https://enb-accenture.cloud.databricks.com/
